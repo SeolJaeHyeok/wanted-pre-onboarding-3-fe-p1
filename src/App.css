@@ -1,14 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
 input {
   font-size: 1.5em;
-  padding: 0.25em;
+  padding: 0.5em;
   border: 1px solid #ccc;
   border-radius: 3px;
   width: 100%;
-  margin-bottom: 24px;
 }
 
 button {
@@ -22,7 +17,7 @@ button {
 
 .content {
   margin: 0 auto;
-  max-width: 640px;
+  max-width: 800px;
   padding: 80px 20px;
 }
 

@@ -5,7 +5,7 @@ import './App.css'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginWithMockAPI/>,
+    element: <LoginWithMockAPI />,
   },
 ]);
 
