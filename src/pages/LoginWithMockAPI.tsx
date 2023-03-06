@@ -43,7 +43,7 @@ const login = async (username: string, password: string): Promise<LoginResponse 
     return user.username === username && user.password === password
   })
   return user
-    ? {message: 'SUCCESS', token:JSON.stringify({user: user.userInfo, secret: _secret})}
+    ? { message: 'SUCCESS', token: JSON.stringify({ user: user.userInfo, secret: _secret }) }
     : null
 }
 
@@ -52,13 +52,13 @@ const getUserInfo = async (token: string): Promise<UserInfo | null> => {
   if (!parsedToken?.secret || parsedToken.secret !== _secret) return null
 
   const loggedUser: User | undefined = users.find((user: User) => {
-    if(user.userInfo.name === parsedToken.user.name) return user
+    if (user.userInfo.name === parsedToken.user.name) return user
   })
   return loggedUser ? loggedUser.userInfo : null
 }
 
 const LoginWithMockAPI = () => {
-  const [userInfo, setUserInfo] = useState<UserInfo>({name: ''})
+  const [userInfo, setUserInfo] = useState<UserInfo>({ name: '' })
 
   const loginSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -66,10 +66,10 @@ const LoginWithMockAPI = () => {
     const formData = new FormData(event.currentTarget)
 
     const loginRes = await login(formData.get('username') as string, formData.get('password') as string)
-    if(!loginRes) return
+    if (!loginRes) return
 
     const userInfo = await getUserInfo(loginRes.token)
-    if(!userInfo) return
+    if (!userInfo) return
 
     setUserInfo(userInfo)
   }
@@ -81,7 +81,7 @@ const LoginWithMockAPI = () => {
     <form onSubmit={loginSubmitHandler}>
       <label>
         Username:
-        <input type="text" name="username"/>
+        <input type="text" name="username" />
       </label>
       <label>
         Password:
